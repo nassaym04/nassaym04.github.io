@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon espace NSI — Première</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <nav>
+    <div class="logo">⌨️ Mon espace NSI</div>
+    <div class="navlinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#cours">Cours</a>
+      <a href="#exercices">Exercices</a>
+      <a href="#python">Python</a>
+    </div>
+  </nav>
+  <div class="hero-content" id="accueil">
+    <span class="badge">Première NSI</span>
+    <h1>Bienvenue dans mon espace <span>NSI</span> 👋</h1>
+    <p>Mes cours, mes exercices et mes programmes Python, réunis dans un seul site.</p>
+    <a class="button" href="#exercices">Voir mes exercices ↓</a>
+  </div>
+</header>
+
+<main>
+<section class="intro section">
+  <div>
+    <p class="eyebrow">MON PORTFOLIO</p>
+    <h2>Un site pour suivre mon travail en NSI</h2>
+    <p>Bienvenue ! Ce site présente mon travail en Numérique et Sciences Informatiques : notions importantes, fiches de révision et exercices Python.</p>
+  </div>
+  <div class="stats">
+    <div><strong>03</strong><span>exercices</span></div>
+    <div><strong>10+</strong><span>notions Python</span></div>
+    <div><strong>1</strong><span>projet</span></div>
+  </div>
+</section>
+
+<section class="section" id="cours">
+  <p class="eyebrow">COURS</p>
+  <h2>Les notions à connaître</h2>
+  <div class="cards">
+    <article class="card"><div class="icon">📦</div><h3>Variables</h3><p>Stocker et modifier des valeurs avec <code>x = 5</code>.</p></article>
+    <article class="card"><div class="icon">🔀</div><h3>Conditions</h3><p>Utiliser <code>if</code>, <code>elif</code> et <code>else</code> pour faire des choix.</p></article>
+    <article class="card"><div class="icon">🔁</div><h3>Boucles</h3><p>Répéter avec <code>for</code>, <code>range()</code> et <code>while</code>.</p></article>
+    <article class="card"><div class="icon">🧩</div><h3>Fonctions</h3><p>Créer des fonctions avec <code>def</code>, des paramètres et <code>return</code>.</p></article>
+    <article class="card"><div class="icon">🧮</div><h3>Opérations</h3><p>Connaître <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code> et <code>**</code>.</p></article>
+    <article class="card"><div class="icon">📋</div><h3>Listes</h3><p>Stocker plusieurs valeurs et les parcourir avec une boucle.</p></article>
+  </div>
+</section>
+
+<section class="section revision">
+  <div class="revision-box">
+    <div>
+      <p class="eyebrow">FICHE DE RÉVISION</p>
+      <h2>Les commandes essentielles</h2>
+      <p>Un mémo rapide pour réviser avant un contrôle.</p>
+    </div>
+    <div class="cheatsheet">
+      <span><code>print()</code> → afficher</span>
+      <span><code>if</code> → si</span>
+      <span><code>for</code> → répéter</span>
+      <span><code>while</code> → tant que</span>
+      <span><code>def</code> → créer une fonction</span>
+      <span><code>return</code> → renvoyer</span>
+      <span><code>%</code> → reste</span>
+      <span><code>//</code> → division entière</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="exercices">
+  <p class="eyebrow">TRAVAIL EN COURS</p>
+  <h2>Exercices — Temps de vol</h2>
+  <p class="lead">Suite de Syracuse : si le nombre est pair, on le divise par 2 ; s'il est impair, on calcule 3 × n + 1. On recommence jusqu'à 1.</p>
+
+  <article class="exercise">
+    <div class="exercise-head"><span>Q1</span><h3>Calculer le temps de vol</h3></div>
+    <p>Écrire une fonction <code>temps_de_vol(n)</code> qui renvoie le nombre d'étapes nécessaires pour arriver à 1.</p>
+    <pre><code>def temps_de_vol(n):
+    compteur = 0
+
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+
+        compteur = compteur + 1
+
+    return compteur</code></pre>
+    <button class="toggle" onclick="toggleAnswer('a1')">Afficher / cacher l'explication</button>
+    <div id="a1" class="answer">
+      <p><strong>Exemple :</strong> pour 6, la suite est 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1. Il y a donc <strong>8 étapes</strong>.</p>
+    </div>
+  </article>
+
+  <article class="exercise">
+    <div class="exercise-head"><span>Q2</span><h3>Trouver le plus grand temps de vol</h3></div>
+    <p>Écrire une fonction <code>temps_max(nmax)</code> qui affiche le plus grand temps de vol pour un nombre entre 1 et <code>nmax</code>.</p>
+    <pre><code>def temps_max(nmax):
+    maximum = 0
+
+    for n in range(1, nmax + 1):
+        temps = temps_de_vol(n)
+
+        if temps > maximum:
+            maximum = temps
+
+    print(maximum)</code></pre>
+    <button class="toggle" onclick="toggleAnswer('a2')">Afficher / cacher l'explication</button>
+    <div id="a2" class="answer">
+      <p>On parcourt tous les nombres avec <code>for</code>, on calcule leur temps de vol, puis on conserve la plus grande valeur dans <code>maximum</code>.</p>
+    </div>
+  </article>
+
+  <article class="exercise">
+    <div class="exercise-head"><span>Q3</span><h3>Afficher aussi le nombre de départ</h3></div>
+    <p>Modifier la fonction pour afficher le nombre qui donne le plus grand temps de vol.</p>
+    <pre><code>def temps_max(nmax):
+    maximum = 0
+    nombre_max = 0
+
+    for n in range(1, nmax + 1):
+        temps = temps_de_vol(n)
+
+        if temps > maximum:
+            maximum = temps
+            nombre_max = n
+
+    print("Le plus grand temps de vol est", maximum)
+    print("Il est obtenu pour le nombre", nombre_max)</code></pre>
+    <button class="toggle" onclick="toggleAnswer('a3')">Afficher / cacher l'explication</button>
+    <div id="a3" class="answer">
+      <p>La variable <code>nombre_max</code> mémorise le nombre de départ chaque fois qu'un nouveau maximum est trouvé.</p>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="python">
+  <p class="eyebrow">PETIT OUTIL</p>
+  <h2>Tester le temps de vol</h2>
+  <div class="tester">
+    <label for="number">Choisis un nombre :</label>
+    <div class="test-row">
+      <input id="number" type="number" min="1" value="6">
+      <button class="button" onclick="testSyracuse()">Calculer</button>
+    </div>
+    <div id="result" class="result">Le résultat apparaîtra ici.</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>© 2026 — Mon espace NSI · Première</p>
+  <p class="small">Site réalisé pour présenter mon travail en NSI.</p>
+</footer>
+
+<script>
+function toggleAnswer(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('show');
+}
+
+function tempsDeVol(n) {
+  let compteur = 0;
+  while (n !== 1) {
+    if (n % 2 === 0) n = n / 2;
+    else n = 3 * n + 1;
+    compteur++;
+    if (compteur > 10000) break;
+  }
+  return compteur;
+}
+
+function testSyracuse() {
+  const input = document.getElementById('number');
+  const result = document.getElementById('result');
+  let n = Number(input.value);
+
+  if (!Number.isInteger(n) || n < 1) {
+    result.textContent = "Entre un entier supérieur ou égal à 1.";
+    return;
+  }
+
+  const depart = n;
+  const temps = tempsDeVol(n);
+  result.innerHTML = "<strong>" + depart + "</strong> nécessite <strong>" + temps + " étape(s)</strong> pour arriver à 1.";
+}
+</script>
+</body>
+</html>
